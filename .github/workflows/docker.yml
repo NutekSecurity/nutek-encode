@@ -2,7 +2,6 @@ name: Publish Docker image
 
 on:
     push:
-        branches: ["main"]
         tags:
             - v[0-9]+.* # This triggers the workflow on any tag push
 
@@ -39,7 +38,7 @@ jobs:
             - name: Docker Hub Description
               uses: peter-evans/dockerhub-description@v4
               with:
-                  username: ${{ secrets.DOCKERHUB_USERNAME }}
-                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+                  username: ${{ secrets.DOCKER_USERNAME }}
+                  password: ${{ secrets.DOCKER_TOKEN }}
                   repository: neosb/nutek-encode
                   readme-filepath: ./README_DOCKER.md
