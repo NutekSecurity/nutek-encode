@@ -90,14 +90,17 @@ jobs:
             - name: Build release binary
               run: ${{ env.CARGO }} build --release --locked --target ${{ matrix.target }}
 
-            - name: Upload the binary to the release
+            - name: Upload the binary to the release windows
+              if: matrix.os == 'windows-latest'
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  if [[ ${{ matrix.os }} == "windows-latest" ]]; then
-                    mv target/${{ matrix.target }}/release/nutek-encode.exe target/release/nutek-encode-${{ matrix.target }}.exe
-                    gh release upload ${{ github.ref_name }} target/release/nutek-encode-${{ matrix.target }}.exe
-                  else
-                    mv target/${{ matrix.target }}/release/nutek-encode target/release/nutek-encode-${{ matrix.target }}
-                    gh release upload ${{ github.ref_name }} target/release/nutek-encode-${{ matrix.target }}
-                  fi
+                  mv target/${{ matrix.target }}/release/nutek-encode.exe target/release/nutek-encode-${{ matrix.target }}.exe
+                  gh release upload ${{ github.ref_name }} target/release/nutek-encode-${{ matrix.target }}.exe
+            - name: Upload the binary to the release unix
+              if: matrix.os != 'windows-latest'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  mv target/${{ matrix.target }}/release/nutek-encode target/release/nutek-encode-${{ matrix.target }}
+                  gh release upload ${{ github.ref_name }} target/release/nutek-encode-${{ matrix.target }}
