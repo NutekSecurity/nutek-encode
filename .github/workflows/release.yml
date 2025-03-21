@@ -49,13 +49,11 @@ jobs:
                       target: aarch64-apple-darwin
                       use-cross: false
 
-                    - name: win-amd64
-                      runner: windows-latest
+                    - os: windows-latest
                       target: x86_64-pc-windows-msvc
                       use-cross: false
 
-                    - name: win-amd64
-                      runner: windows-latest
+                    - os: windows-latest
                       target: x86_64-pc-windows-gnu
                       use-cross: false
 
