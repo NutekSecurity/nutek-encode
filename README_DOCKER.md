@@ -17,7 +17,7 @@ docker pull neosb/nutek-encode
 ## Usage
 
 ```bash
-docker run --rm neosb/nutek-encode
+docker run --rm -i neosb/nutek-encode
 ```
 
 ## Examples
@@ -25,19 +25,19 @@ docker run --rm neosb/nutek-encode
 ### Encode text
 
 ```bash
-echo "Hello, World!" | docker run -i --rm -i neosb/nutek-encode base64 -
+echo "Hello, World!" | docker run -i --rm neosb/nutek-encode base64 -
 ```
 
 ### Decode text
 
 ```bash
-echo "SGVsbG8sIFdvcmxkIQ==" | docker run -i --rm -i neosb/nutek-encode base64 -d
+echo "SGVsbG8sIFdvcmxkIQ==" | docker run -i --rm neosb/nutek-encode base64 -d
 ```
 
 ### Encode a file
 
 ```bash
-docker run --rm -v $(pwd):/data neosb/nutek-encode base64 /data/file.txt
+docker run --rm -i -v $(pwd):/data neosb/nutek-encode base64 /data/file.txt
 ```
 
 ## GitHub

@@ -2,6 +2,13 @@
 name = "nutek-encode"
 version = "0.1.0"
 edition = "2024"
+authors = ["Nutek Security <neosb@nuteksecurity.com"]
+repository = "https://github.com/nuteksecurity/nutek-encode"
+description = "A collection of encoding and hashing utilities"
+license = "MIT"
+keywords = ["encoding", "hashing", "hex", "percent-encoding", "html-escaping"]
+readme = "README.md"
+
 
 [dependencies]
 clap = { version = "4.5.32", features = ["derive"] }

@@ -26,12 +26,21 @@ or download the binary from the [releases](https://github.com/nuteksecurity/nute
 
 just maybe go to the [docker hub](https://hub.docker.com/r/neosb/nutek-encode) page and pull the image.
 
+```bash
+docker pull neosb/nutek-encode
+```
+
 ## Usage
 
 ![Nutek Encode showcase](examples/demo.gif)
 
 ```bash
 nutek-encode --help
+```
+or using Docker
+
+```bash
+echo "Hello, World!" | docker run -i --rm neosb/nutek-encode base64 -
 ```
 
 ### It is also possible to use the tool as a library
