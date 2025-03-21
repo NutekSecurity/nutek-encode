@@ -1,5 +1,7 @@
 # Nutek Encode
 
+![Untitled](Untitled.png)
+
 Easily encode and decode text, files and buffers into various types of output.
 
 ## Why Nutek Encode?
@@ -15,6 +17,10 @@ From stable:
 ```bash
 cargo install nutek-encode
 ```
+
+Link to the [crates.io](https://crates.io/crates/nutek-encode) page.
+
+Instructions for installing Rust can be found [here](https://www.rust-lang.org/tools/install).
 
 From source:
 
@@ -52,6 +58,13 @@ fn main() {
     let encoded = encoder::encode_base64("hello").unwrap();
     assert_eq!(encoded, "aGVsbG8=");
 }
+```
+
+To do that, add the following to your `Cargo.toml`:
+
+```toml
+[dependencies]
+nutek-encode = "0.1.0"
 ```
 
 For more inspiration, check out the [documentation](https://docs.rs/nutek-encode).

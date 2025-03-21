@@ -1,7 +1,6 @@
 pub mod tests {
     use std::{
         fs::{self, File},
-        io::Write,
         path::{Path, PathBuf},
         process::Command,
     };

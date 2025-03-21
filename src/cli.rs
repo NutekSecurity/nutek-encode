@@ -5,7 +5,20 @@ use std::path::PathBuf;
 #[derive(Parser, Debug)]
 #[command(
     version,
-    about = "Nutek Encode\n\nEasily encode and decode text, files and buffers into various types of output.\n\nhttps://github.com/nuteksecurity/nutek-encode",
+    about = r#"
+::::    ::: :::    ::: ::::::::::: :::::::::: :::    :::
+:+:+:   :+: :+:    :+:     :+:     :+:        :+:   :+:             ♪
+:+:+:+  +:+ +:+    +:+     +:+     +:+        +:+  +:+      ^_^  ♪
++#+ +:+ +#+ +#+    +:+     +#+     +#++:++#   +#++:++      ('.')  ♪
++#+  +#+#+# +#+    +#+     +#+     +#+        +#+  +#+     M>^<M
+#+#   #+#+# #+#    #+#     #+#     #+#        #+#   #+#   ~(m.m)
+###    ####  ########      ###     ########## ###    ### security.com
+
+Nutek Encode
+
+Easily encode and decode text, files and buffers into various types of output.
+
+https://nuteksecurity.com"#,
     long_about = r#"Nutek Encode
 
 Easily encode and decode text, files and buffers into various types of output.
@@ -496,19 +509,4 @@ pub enum Commands {
         #[arg(default_value = "")]
         stdin: MaybeStdin<String>,
     },
-}
-
-#[cfg(test)]
-mod tests_cli {
-    use std::{fs::File, io::Write, process::Command};
-
-    fn run_command(args: &[&str]) -> String {
-        let process = Command::new("cargo")
-            .args(&["run", "--"])
-            .args(args)
-            .output()
-            .expect("failed to execute process");
-
-        String::from_utf8(process.stdout).unwrap()
-    }
 }

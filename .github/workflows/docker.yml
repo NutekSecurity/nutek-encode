@@ -40,3 +40,4 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_TOKEN }}
                   repository: neosb/nutek-encode
+                  readme-filepath: ./README_DOCKER.md

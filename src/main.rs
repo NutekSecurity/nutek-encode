@@ -548,27 +548,3 @@ fn handle_simple_encoding<F>(
         println!("{}", result);
     }
 }
-
-/// Handles hash commands that use a hashing function.
-fn handle_hash<F>(string: String, stdin: MaybeStdin<String>, hash_fn: F)
-where
-    F: Fn(&str) -> Result<String, Box<dyn std::error::Error>>,
-{
-    let input_data = if !string.is_empty() {
-        string
-    } else {
-        stdin.into_inner()
-    };
-
-    if input_data.is_empty() {
-        eprintln!("No input provided. Use --string or stdin.");
-        return;
-    }
-
-    let result = hash_fn(&input_data).unwrap_or_else(|e| {
-        eprintln!("Failed to hash: {:?}", e);
-        std::process::exit(1);
-    });
-
-    println!("{}", result);
-}
