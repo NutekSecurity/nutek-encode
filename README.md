@@ -8,6 +8,8 @@ I was inspired by a Perl script - [hURL](https://github.com/fnord0/hURL). I used
 
 ## Installation
 
+[![Rust](https://github.com/NutekSecurity/nutek-encode/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/NutekSecurity/nutek-encode/actions/workflows/ci.yml)
+
 From stable:
 
 ```bash
@@ -71,4 +73,4 @@ cargo bench
 
 © 2025 Nutek Security and contributors.
 
-Nutek Encode is licensed under the MIT license. Please see the [LICENSE](LICENSE.md) file for more information.
+Nutek Encode is licensed under the MIT license. Please see the [LICENSE](LICENSE) file for more information.

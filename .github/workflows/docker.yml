@@ -2,8 +2,9 @@ name: Publish Docker image
 
 on:
     push:
+        branches: ["main"]
         tags:
-            - "*" # This triggers the workflow on any tag push
+            - v[0-9]+.* # This triggers the workflow on any tag push
 
 jobs:
     build-and-push:
@@ -35,20 +36,10 @@ jobs:
                       neosb/nutek-encode:${{ env.VERSION }}
                       neosb/nutek-encode:latest
 
-            - name: Log in to Docker Hub
-              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-            - name: Update Docker Hub README
-              env:
-                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-                  DOCKER_PASSWORD: ${{ secrets.DOCKER_TOKEN }}
-              run: |
-                  # Define variables
-                  REPO_NAME="nutek-encode"
-                  README_FILE="README_DOCKER.md"
-
-                  # Update Docker Hub README
-                  curl -s -X PATCH https://hub.docker.com/v2/repositories/${DOCKER_USERNAME}/${REPO_NAME}/ \
-                  -H "Content-Type: application/json" \
-                  -H "Authorization: JWT $(curl -s -H "Content-Type: application/json" -X POST -d '{"username": "${DOCKER_USERNAME}", "password": "${DOCKER_PASSWORD}"}' https://hub.docker.com/v2/users/login/ | jq -r .token)" \
-                  --data '{"full_description": "'"$(jq -sR . < ${README_FILE})"'"}'
+            - name: Docker Hub Description
+              uses: peter-evans/dockerhub-description@v4
+              with:
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_TOKEN }}
+                  repository: peterevans/dockerhub-description
+                  readme-filepath: ./README_DOCKER.md

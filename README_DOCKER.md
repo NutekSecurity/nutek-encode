@@ -27,3 +27,19 @@ docker run --rm neosb/nutek-encode
 ```bash
 echo "Hello, World!" | docker run -i --rm -i neosb/nutek-encode base64 -
 ```
+
+### Decode text
+
+```bash
+echo "SGVsbG8sIFdvcmxkIQ==" | docker run -i --rm -i neosb/nutek-encode base64 -d
+```
+
+### Encode a file
+
+```bash
+docker run --rm -v $(pwd):/data neosb/nutek-encode base64 /data/file.txt
+```
+
+## GitHub
+
+The source code is available on [GitHub](https://github.com/nuteksecurity/nutek-encode).
