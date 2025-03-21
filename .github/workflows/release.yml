@@ -53,9 +53,9 @@ jobs:
                       target: x86_64-pc-windows-gnu
                       use-cross: false
 
-                    - os: windows-lates
-                      target: x86_64-pc-windows-msvc
-                      use-cross: false
+                    # - os: windows-lates
+                    #   target: x86_64-pc-windows-msvc
+                    #   use-cross: false
 
         env:
             CARGO: cargo

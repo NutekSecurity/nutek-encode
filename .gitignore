@@ -1,3 +1,9 @@
 /target
 
 /examples/tmp.*
+
+/examples
+
+/benches/my_benchmark/benchmark-result.gif
+
+/benches/my_benchmark/benchmark-result.cast

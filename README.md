@@ -32,7 +32,7 @@ docker pull neosb/nutek-encode
 
 ## Usage
 
-![Nutek Encode showcase](examples/demo.gif)
+![Nutek Encode showcase](https://github.com/NutekSecurity/nutek-encode/blob/827615f5396632e874a6da0010dfb10a094289cc/examples/demo.gif)
 
 ```bash
 nutek-encode --help
